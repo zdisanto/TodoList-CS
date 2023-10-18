@@ -16,6 +16,7 @@ public class Program {
 		
 		// Todo List Functionality:
 		while (number != "4") {
+			// Options:
 			Console.WriteLine("Type a number and press ENTER to complete a function:");
 			Console.WriteLine("\t1. Add Task");
 			Console.WriteLine("\t2. Delete Task");
@@ -34,6 +35,7 @@ public class Program {
 				
 			// If user presses '2': 
 			} else if (number == "2") {
+				// If there are items in the todo list:
 				if (todoList.Count > 0) { 
  					Console.WriteLine("Enter the number of the task you want to delete:");
 					for (int i = 0; i < todoList.Count; i++) { 
@@ -41,12 +43,13 @@ public class Program {
 					}
 					int taskNum = int.Parse(Console.ReadLine());
 					taskNum--;
-
+					// If the number selected by the user is larger than 0 AND less than the amount of tasks in the todo list:
 					if (taskNum >= 0 && taskNum < todoList.Count) { 
 						todoList.RemoveAt(taskNum); 
  						Console.Clear(); 
  						Console.WriteLine("Your task was deleted successfully!"); 
  						Console.WriteLine("");
+					// If not:
 					} else { 
  						Console.Clear(); 
  						Console.WriteLine("404: Task Not Found."); 
@@ -61,12 +64,13 @@ public class Program {
 			// If user presses '3': 
 			} else if (number == "3") {
 				Console.Clear();
-				// If there are no items in the todo list:
+				// If there are items in the todo list:
 				if (todoList.Count > 0) { 
 					Console.WriteLine("Your Todo List: ");
 					for (int i = 0; i < todoList.Count; i++) { 
 						Console.WriteLine("\t- " + todoList[i]); 
 					}
+				// If there are no items in the todo list:
 				} else {
 					Console.Clear();
 					Console.WriteLine("There are no items in your Todo list."); 
@@ -76,12 +80,14 @@ public class Program {
 				
 			// If user presses '4':
 			} else if (number == "4") { 
+				// End
  				break;
 			// If user presses anything other than 1-4, error statement:
 			} else { 
 				Console.WriteLine("404: Request Not Found.\n"); 
 			}
 		} 
+		// End note:
 		Console.Clear();
 		Console.WriteLine("Good bye!"); 
 	}
